@@ -27,14 +27,14 @@ function ajax(){
     xhttp.send();
 }
 
-var count = 0;
-function checkbox_check(){
-    var checkbox = document.getElementById("box");
-    if (checkbox.checked == true){
-        count++;
-      }
-    if(count == 5){
-        alert("Congrats. 5 Tasks have been Successfully Completed");
-        count = 0;
-    }
-}
+// var count = 0;
+// function checkbox_check(){
+//     var checkbox = document.getElementById("box");
+//     if (checkbox.checked == true){
+//         count++;
+//       }
+//     if(count == 5){
+//         alert("Congrats. 5 Tasks have been Successfully Completed");
+//         count = 0;
+//     }
+// }
