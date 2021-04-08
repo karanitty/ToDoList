@@ -51,6 +51,9 @@ function checkbox_check(t){
     })
 
     function display(){
+        // if (count %5 ==0 && count!=0){
+        //     alert("Congrats. 5 tasks have been successfully completed");
+        // }
         if (count==5){
             alert("Congrats. 5 tasks have been successfully completed");
         }
