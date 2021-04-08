@@ -14,7 +14,7 @@ function ajax(){
                 output += "<td>"+ response[i].id +"</td>";
                 output += "<td>"+ response[i].title +"</td>";
                 if(response[i].completed == false){
-                    output += "<th>"+ "<input type =\"checkbox\" id=\"box\" onclick = \"checkbox_check();\">" + "</input>" + "</th>"; 
+                    output += "<th>"+ "<input type =\"checkbox\" id="+i+" onclick = \"checkbox_check("+i+");\">" + "</input>" + "</th>"; 
                 }
                 else{
                     output += "<th>" + "<input type =\"checkbox\" checked disabled>" + "</input>" + "</th>"; 
@@ -28,13 +28,31 @@ function ajax(){
 }
 
 var count = 0;
-function checkbox_check(){
-    var checkbox = document.getElementById("box");
-    if (checkbox.checked == true){
+function checkbox_check(t){
+    var checkbox = document.getElementById(t);
+    var promise = new Promise(function(resolve,reject){
+        if(checkbox.checked == true){
+            resolve();
+        }
+        else{
+            reject();
+        }
+    })
+
+    promise
+    .then(function(){
         count++;
-      }
-    if(count == 5){
-        alert("Congrats. 5 Tasks have been Successfully Completed");
-        count = 0;
+        display();
+    })
+
+    .catch(function(){
+        count--;
+        display();
+    })
+
+    function display(){
+        if (count==5){
+            alert("Congrats. 5 tasks have been successfully completed");
+        }
     }
 }
